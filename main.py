@@ -312,7 +312,80 @@ async def account_login(bot: Client, m: Message):
                 count += 1
                 os.remove(name) if os.path.exists(name) else None
                 continue
-                
+
+
+            if "youtu" in url:
+                if raw_text2 in ["144", "240", "480"]:
+                    ytf = f'bestvideo[height<={raw_text2}][ext=mp4]+bestaudio[ext=m4a]'
+                elif raw_text2 == "360":
+                    ytf = 18
+                elif raw_text2 == "720":
+                    ytf = "22/18"
+                else:
+                    ytf = 18
+            else:
+                ytf=f"bestvideo[height<={raw_text2}]"
+#             try:
+            if "jwplayer" in url:
+                if raw_text2 in ["180", "144"]:
+                    try:
+                        cmd = f'yt-dlp -F "{url}"'
+                        k = await helper.run(cmd)
+                        out = helper.vid_info(str(k))
+                        ytf = f"{out['320x180 ']}/{out['256x144 ']}"
+                    except Exception as e:
+                        if e==0:
+                            raw_text2=="no"
+                elif raw_text2 in ["240", "270"]:
+                    try:
+                        cmd = f'yt-dlp -F "{url}"'
+                        k = await helper.run(cmd)
+                        out = helper.vid_info(str(k))
+                        ytf = f"{out['480x270 ']}/{out['426x240 ']}"
+                    except Exception as e:
+                        if e==0:
+                            raw_text=="no"
+                elif raw_text2 == "360":
+                    try:
+                        cmd = f'yt-dlp -F "{url}"'
+                        k = await helper.run(cmd)
+                        out = helper.vid_info(str(k))
+                        ytf = out['640x360 ']
+                    except Exception as e:
+                        if e == 0:
+                            raw_text2=="no"
+                        #cmd=f'yt-dlp -o "{name}.mp4" "{url}"'
+                elif raw_text2 == "480":
+                    try:
+                        cmd = f'yt-dlp -F "{url}"'
+                        k = await helper.run(cmd)
+                        out = helper.vid_info(str(k))
+                        ytf = f"{out['960x540 ']}/{out['852x480 ']}"
+                    except Exception as e:
+                        if e==0:
+                            raw_text2=="no"
+                    # cmd=f'yt-dlp -o "{name}.mp4" "{url}"'
+                elif raw_text2 == "720":
+                    try:
+                        cmd = f'yt-dlp -F "{url}"'
+                        k = await helper.run(cmd)
+                        out = helper.vid_info(str(k))
+                        ytf = f"{out['1280x720 ']}"
+                    except Exception as e:
+                        if e==0:
+                            raw_text2=="no"
+                    # cmd=f'yt-dlp -o "{name}.mp4" "{url}"'
+                elif raw_text2 == "1080":
+                    try:
+                        cmd = f'yt-dlp -F "{url}"'
+                        k = await helper.run(cmd)
+                        out = helper.vid_info(str(k))
+                        ytf =f"{out['1920x1080 ']}/{['1920x1056']}"
+                    except Exception as e:
+                        if e==0:
+                            raw_text2=="no"
+
+           
             if "classplus" in url:
                 ytf = None
                 name = name1
