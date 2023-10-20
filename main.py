@@ -30,8 +30,8 @@ os.makedirs("./downloads", exist_ok=True)
 API_ID = 27039595
 API_HASH = "aabe9b61bbdb73ea4b35fc4faa880621"
 BOT_TOKEN = "6614216476:AAFDybAx7C27HAjo2AVPWiwxwwM_i2RMzvk"
-AUTH_USERS = 6387516803,5931737600
-sudo_users = [6387516803,5931737600]
+AUTH_USERS = 6387516803,
+sudo_users = [6387516803]
 bot = Client(
     "bot",
     bot_token=BOT_TOKEN,
@@ -116,7 +116,7 @@ async def account_login(bot: Client, m: Message):
 
             Show = f"**Downloading:-**\n\n**Name :-** ```{name}\nQuality - {raw_text2}```\n\n**Url :-** ```{url}```"
             prog = await m.reply_text(Show)
-            cc = f'>> **Name :** {name}\n>> **Title :** {raw_text0}\n\n>> **Index :** {count}'
+            cc = f'>> **Name :** {name}\n>> **Title :** {raw_text2}\n\n>> **Index :** {count}'
 
             if "youtu" in url:
                 if raw_text2 in ["144", "240", "480"]:
