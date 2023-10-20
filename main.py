@@ -30,8 +30,8 @@ os.makedirs("./downloads", exist_ok=True)
 API_ID = 27039595
 API_HASH = "aabe9b61bbdb73ea4b35fc4faa880621"
 BOT_TOKEN = "6614216476:AAFDybAx7C27HAjo2AVPWiwxwwM_i2RMzvk"
-AUTH_USERS = 6387516803
-sudo_users = [6387516803]
+AUTH_USERS = 6387516803,5931737600
+sudo_users = [6387516803,5931737600]
 bot = Client(
     "bot",
     bot_token=BOT_TOKEN,
