@@ -874,16 +874,16 @@ async def account_login(bot: Client, m: Message):
        input1: Message = await bot.listen(editable.chat.id)
        raw_text0 = input1.text
        await input1.delete(True)
-      if raw_text0 == 'd':
+       if raw_text0 == 'd':
          b_name = file_name
-      else:
+       else:
          b_name = raw_text0
 
-    await editable.edit("**Enter resolution**")
-    input2: Message = await bot.listen(editable.chat.id)
-    raw_text2 = input2.text
-    await input2.delete(True)
-    try:
+       await editable.edit("**Enter resolution**")
+       input2: Message = await bot.listen(editable.chat.id)
+       raw_text2 = input2.text
+       await input2.delete(True)
+       try:
         if raw_text2 == "144":
             res = "256x144"
         elif raw_text2 == "240":
@@ -901,34 +901,34 @@ async def account_login(bot: Client, m: Message):
     except Exception:
             res = "UN"
     
-    await editable.edit("**Enter Your Name or send `de` for use default**")
-    input3: Message = await bot.listen(editable.chat.id)
-    raw_text3 = input3.text
-    await input3.delete(True)
-    if raw_text3 == 'de':
-        CR = credit
-    else:
-        CR = raw_text3
+       await editable.edit("**Enter Your Name or send `de` for use default**")
+       input3: Message = await bot.listen(editable.chat.id)
+       raw_text3 = input3.text
+       await input3.delete(True)
+      if raw_text3 == 'de':
+         CR = credit
+      else:
+         CR = raw_text3
 
-    await editable.edit("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.jpg```\n\nor Send `no`")
-    input6 = message = await bot.listen(editable.chat.id)
-    raw_text6 = input6.text
-    await input6.delete(True)
-    await editable.delete()
+      await editable.edit("Now send the **Thumb url**\nEg : ```https://telegra.ph/file/0633f8b6a6f110d34f044.jpg```\n\nor Send `no`")
+      input6 = message = await bot.listen(editable.chat.id)
+      raw_text6 = input6.text
+      await input6.delete(True)
+      await editable.delete()
 
     thumb = input6.text
-    if thumb.startswith("http://") or thumb.startswith("https://"):
+      if thumb.startswith("http://") or thumb.startswith("https://"):
         getstatusoutput(f"wget '{thumb}' -O 'thumb.jpg'")
         thumb = "thumb.jpg"
-    else:
+      else:
         thumb == "no"
 
-    if len(links) == 1:
+      if len(links) == 1:
         count = 1
-    else:
+      else:
         count = int(raw_text)
 
-    try:
+      try:
         for i in range(count - 1, len(links)):
 
             V = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","") # .replace("mpd","m3u8")
