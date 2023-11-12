@@ -845,7 +845,7 @@ async def account_login(bot: Client, m: Message):
 
        path = f"./downloads/"
 
-        try:
+       try:
             with open(x, "r") as f:
                 content = f.read()
             content = content.split("\n")
@@ -854,7 +854,7 @@ async def account_login(bot: Client, m: Message):
                 links.append(i.split("://", 1))
             os.remove(x)
             # print(len(links)
-        except:
+       except:
             await m.reply_text("Invalid file input.🥲")
             os.remove(x)
             return
