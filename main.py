@@ -51,7 +51,7 @@ async def exec(cmd):
   
 @bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
- editable = await m.reply_text("**Nishant this side send /down download and for classplus send /cpd for txt send /TXT for /dhurina for /vision**")
+ editable = await m.reply_text("**Nishant this side send /down download and for classplus send /cpd for txt send /txt for /dhurina for /vision**")
 
 @bot.on_message(filters.command(["down"]))
 async def account_login(bot: Client, m: Message):
@@ -835,7 +835,7 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Done")
 
 
-@bot.on_message(filters.command(["TXT"])
+@bot.on_message(filters.command(["txt"])
 async def account_login(bot: Client, m: Message):
     
     editable = await m.reply_text("Send txt file")
